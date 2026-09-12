@@ -1,4 +1,5 @@
 import { experience } from "@/data/resume";
+import { CalendarDays, MapPin } from "lucide-react";
 
 export default function Experience() {
   return (
@@ -18,11 +19,17 @@ export default function Experience() {
                   <h3 className="font-display text-xl font-semibold text-paper sm:text-2xl">
                     {job.role}
                   </h3>
-                  <span className="font-mono text-xs text-paper-faint">
+                  <span className="inline-flex items-center gap-2 font-mono text-xs text-paper-faint">
+                    <CalendarDays
+                      size={14}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
                     {job.period}
                   </span>
                 </div>
-                <p className="mt-1 font-mono text-sm text-amber">
+                <p className="mt-1 inline-flex items-center gap-2 font-mono text-sm text-amber">
+                  <MapPin size={15} strokeWidth={1.8} aria-hidden="true" />
                   {job.company} · {job.location}
                 </p>
                 <ul className="mt-5 space-y-3">

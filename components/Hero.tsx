@@ -1,5 +1,6 @@
-import { profile, stats } from "@/data/resume";
 import Spotlight from "@/components/Spotlight";
+import { profile, stats } from "@/data/resume";
+import { ArrowRight, Send } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -17,15 +18,17 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="rounded-sm bg-amber px-6 py-3 font-mono text-sm font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_-4px_rgba(242,184,75,0.65)]"
+              className="inline-flex items-center gap-2 rounded-sm bg-amber px-6 py-3 font-mono text-sm font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_-4px_rgba(242,184,75,0.65)]"
             >
               View projects
+              <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
             </a>
             <a
               href="#contact"
-              className="rounded-sm border border-ink-border px-6 py-3 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-mint hover:text-mint hover:shadow-[0_0_22px_-6px_rgba(124,224,196,0.45)]"
+              className="inline-flex items-center gap-2 rounded-sm border border-ink-border px-6 py-3 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-mint hover:text-mint hover:shadow-[0_0_22px_-6px_rgba(124,224,196,0.45)]"
             >
               Get in touch
+              <Send size={15} strokeWidth={1.8} aria-hidden="true" />
             </a>
           </div>
 
@@ -66,21 +69,21 @@ function CodePanel() {
       </div>
       <pre className="overflow-x-auto p-6 font-mono text-[13px] leading-relaxed text-paper-muted">
         <code>
-          <span className="text-mint">const</span> developer ={" "}
-          {"{"}
+          <span className="text-mint">const</span> developer = {"{"}
           {"\n"}
-          {"  "}name: <span className="text-amber">&quot;Joy Sutradhar&quot;</span>,
-          {"\n"}
+          {"  "}name:{" "}
+          <span className="text-amber">&quot;Joy Sutradhar&quot;</span>,{"\n"}
           {"  "}stack: [<span className="text-amber">&quot;React&quot;</span>,{" "}
           <span className="text-amber">&quot;Next.js&quot;</span>,{" "}
           <span className="text-amber">&quot;React Native&quot;</span>],
           {"\n"}
-          {"  "}focus: <span className="text-amber">&quot;component architecture&quot;</span>,
-          {"\n"}
-          {"  "}shipping: <span className="text-mint">true</span>,
-          {"\n"}
+          {"  "}focus:{" "}
+          <span className="text-amber">
+            &quot;scalable architecture & exceptional user experiences&quot;
+          </span>
+          ,{"\n"}
+          {"  "}shipping: <span className="text-mint">true</span>,{"\n"}
           {"}"};{"\n\n"}
-          <span className="text-paper-faint">// currently building the Retailer Book ERP</span>
         </code>
       </pre>
     </Spotlight>

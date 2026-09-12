@@ -1,5 +1,6 @@
-import { projects } from "@/data/resume";
 import Spotlight from "@/components/Spotlight";
+import { projects } from "@/data/resume";
+import { ExternalLink } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -22,9 +23,14 @@ export default function Projects() {
                           href={project.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="transition-colors hover:text-amber"
+                          className="inline-flex items-center gap-2 transition-colors hover:text-amber"
                         >
                           {project.name}
+                          <ExternalLink
+                            size={17}
+                            strokeWidth={1.8}
+                            aria-hidden="true"
+                          />
                         </a>
                       ) : (
                         project.name
@@ -60,9 +66,14 @@ export default function Projects() {
                       href={project.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-5 inline-block font-mono text-sm text-amber transition-colors hover:text-paper"
+                      className="mt-5 inline-flex items-center gap-2 font-mono text-sm text-amber transition-colors hover:text-paper"
                     >
-                      View source →
+                      View source
+                      <ExternalLink
+                        size={15}
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
                     </a>
                   )}
                 </article>

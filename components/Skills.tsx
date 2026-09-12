@@ -1,4 +1,5 @@
-import { skills, education } from "@/data/resume";
+import { education, skills } from "@/data/resume";
+import { GraduationCap } from "lucide-react";
 
 export default function Skills() {
   const groups = Object.entries(skills);
@@ -36,7 +37,8 @@ export default function Skills() {
             <h3 className="font-display text-xl font-semibold text-paper">
               {education.degree}
             </h3>
-            <p className="mt-1 font-mono text-sm text-amber">
+            <p className="mt-1 inline-flex items-center gap-2 font-mono text-sm text-amber">
+              <GraduationCap size={16} strokeWidth={1.8} aria-hidden="true" />
               {education.school} · {education.location}
             </p>
             <p className="mt-1 text-sm text-paper-faint">{education.year}</p>

@@ -1,4 +1,5 @@
 import { profile } from "@/data/resume";
+import { ArrowUpRight, Link2, Mail, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -16,14 +17,16 @@ export default function Contact() {
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-sm bg-amber px-6 py-3 font-mono text-sm font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_-4px_rgba(242,184,75,0.65)]"
+            className="inline-flex items-center gap-2 rounded-sm bg-amber px-6 py-3 font-mono text-sm font-medium text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_-4px_rgba(242,184,75,0.65)]"
           >
+            <Mail size={16} strokeWidth={1.8} aria-hidden="true" />
             {profile.email}
           </a>
           <a
             href={`tel:${profile.phone}`}
-            className="rounded-sm border border-ink-border px-6 py-3 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-mint hover:text-mint hover:shadow-[0_0_22px_-6px_rgba(124,224,196,0.45)]"
+            className="inline-flex items-center gap-2 rounded-sm border border-ink-border px-6 py-3 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-mint hover:text-mint hover:shadow-[0_0_22px_-6px_rgba(124,224,196,0.45)]"
           >
+            <Phone size={16} strokeWidth={1.8} aria-hidden="true" />
             {profile.phone}
           </a>
         </div>
@@ -37,17 +40,21 @@ export default function Contact() {
               href={profile.github}
               target="_blank"
               rel="noreferrer"
-              className="nav-link transition-colors hover:text-amber"
+              className="inline-flex items-center gap-2 nav-link transition-colors hover:text-amber"
             >
+              <Link2 size={15} strokeWidth={1.8} aria-hidden="true" />
               GitHub
+              <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden="true" />
             </a>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="nav-link transition-colors hover:text-amber"
+              className="inline-flex items-center gap-2 nav-link transition-colors hover:text-amber"
             >
+              <Link2 size={15} strokeWidth={1.8} aria-hidden="true" />
               LinkedIn
+              <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden="true" />
             </a>
           </div>
         </div>

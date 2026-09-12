@@ -1,4 +1,5 @@
 import { profile } from "@/data/resume";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function About() {
   return (
@@ -10,17 +11,40 @@ export default function About() {
             <p className="max-w-2xl text-xl leading-relaxed text-paper sm:text-2xl">
               {profile.summary}
             </p>
-            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 font-mono text-sm text-paper-muted">
-              <span>{profile.location}</span>
-              <span className="text-ink-border">/</span>
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 font-mono text-sm text-paper-muted">
+              <span className="inline-flex items-center gap-2">
+                <MapPin
+                  size={15}
+                  strokeWidth={1.8}
+                  className="text-amber"
+                  aria-hidden="true"
+                />
+                {profile.location}
+              </span>
               <a
                 href={`mailto:${profile.email}`}
-                className="transition-colors hover:text-amber"
+                className="inline-flex items-center gap-2 transition-colors hover:text-amber"
               >
+                <Mail
+                  size={15}
+                  strokeWidth={1.8}
+                  className="text-amber"
+                  aria-hidden="true"
+                />
                 {profile.email}
               </a>
-              <span className="text-ink-border">/</span>
-              <span>{profile.phone}</span>
+              <a
+                href={`tel:${profile.phone}`}
+                className="inline-flex items-center gap-2 transition-colors hover:text-amber"
+              >
+                <Phone
+                  size={15}
+                  strokeWidth={1.8}
+                  className="text-amber"
+                  aria-hidden="true"
+                />
+                {profile.phone}
+              </a>
             </div>
           </div>
         </div>

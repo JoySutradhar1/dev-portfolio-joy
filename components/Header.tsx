@@ -2,6 +2,7 @@
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { profile } from "@/data/resume";
+import { ArrowUpRight, Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -63,9 +64,10 @@ export default function Header() {
           <ThemeToggle />
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-sm border border-ink-border px-4 py-2 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-amber hover:text-amber hover:shadow-[0_0_22px_-6px_rgba(242,184,75,0.55)]"
+            className="inline-flex items-center gap-2 rounded-sm border border-ink-border px-4 py-2 font-mono text-sm text-paper transition-all duration-300 hover:-translate-y-0.5 hover:border-amber hover:text-amber hover:shadow-[0_0_22px_-6px_rgba(242,184,75,0.55)]"
           >
             Say hello
+            <ArrowUpRight size={15} strokeWidth={1.8} aria-hidden="true" />
           </a>
         </div>
 
@@ -79,16 +81,11 @@ export default function Header() {
             aria-label="Toggle navigation menu"
             className="flex h-9 w-9 flex-col items-center justify-center gap-1.5"
           >
-            <span
-              className={`h-px w-6 bg-paper transition-transform ${
-                open ? "translate-y-[3.5px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`h-px w-6 bg-paper transition-transform ${
-                open ? "-translate-y-[3.5px] -rotate-45" : ""
-              }`}
-            />
+            {open ? (
+              <X size={20} strokeWidth={1.8} aria-hidden="true" />
+            ) : (
+              <Menu size={20} strokeWidth={1.8} aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
@@ -117,7 +114,15 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="inline-block text-amber"
               >
-                Say hello →
+                <span className="inline-flex items-center gap-2">
+                  <Mail size={15} strokeWidth={1.8} aria-hidden="true" />
+                  Say hello
+                  <ArrowUpRight
+                    size={15}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
+                </span>
               </a>
             </li>
           </ul>
