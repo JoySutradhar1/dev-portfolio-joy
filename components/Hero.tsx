@@ -1,16 +1,29 @@
 import Spotlight from "@/components/Spotlight";
 import { profile, stats } from "@/data/resume";
 import { ArrowRight, Send } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section id="top" className="grain-bg border-b border-ink-border">
       <div className="mx-auto grid max-w-content gap-12 px-6 py-20 md:grid-cols-[1.1fr_1fr] md:items-center md:px-10 md:py-28">
         <div>
-          <p className="section-label">// frontend developer</p>
-          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] text-paper sm:text-5xl lg:text-[3.4rem]">
-            {profile.name}
-          </h1>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/profile-avatar.jpg"
+              alt={`${profile.name} profile photo`}
+              width={96}
+              height={96}
+              priority
+              className="h-20 w-20 rounded-full border-2 border-amber/70 object-cover shadow-[0_0_24px_-8px_rgba(242,184,75,0.8)] sm:h-24 sm:w-24"
+            />
+            <div>
+              <p className="section-label">// frontend developer</p>
+              <h1 className="mt-2 font-display text-4xl font-semibold leading-[1.1] text-paper sm:text-5xl lg:text-[3.4rem]">
+                {profile.name}
+              </h1>
+            </div>
+          </div>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-paper-muted">
             {profile.tagline}
           </p>
