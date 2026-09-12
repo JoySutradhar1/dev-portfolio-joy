@@ -2,8 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0e14;
+  --bg-surface: #10151d;
+  --bg-raised: #161c26;
+  --border: #232b37;
+  --text: #e8ecef;
+  --text-muted: #8b96a5;
+  --text-faint: #5b6572;
+  --accent: #f2b84b;
+  --accent-dim: #c99638;
+  --mint: #7ce0c4;
+  --mint-dim: #4fa98f;
+  --grid-dot: #232b37;
+  --header-bg: rgba(10, 14, 20, 0.9);
+  --surface-card: rgba(16, 21, 29, 0.6);
+  --accent-border-hover: rgba(242, 184, 75, 0.4);
+  --accent-border-hover-50: rgba(242, 184, 75, 0.5);
+  --mint-border-hover: rgba(124, 224, 196, 0.4);
+  --orb-amber: rgba(242, 184, 75, 1);
+  --orb-mint: rgba(124, 224, 196, 1);
+  --orb-amber-opacity: 0.16;
+  --orb-mint-opacity: 0.11;
+  --aurora-amber: rgba(242, 184, 75, 0.55);
+  --aurora-mint: rgba(124, 224, 196, 0.4);
+  --aurora-opacity: 0.55;
+  --cursor-amber: rgba(242, 184, 75, 0.14);
+  --cursor-mint: rgba(124, 224, 196, 0.05);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f4ef;
+  --bg-surface: #ffffff;
+  --bg-raised: #ece9e1;
+  --border: #ddd9cf;
+  --text: #1b1f27;
+  --text-muted: #5b6572;
+  --text-faint: #838d9a;
+  --accent: #b9791f;
+  --accent-dim: #96601a;
+  --mint: #29806a;
+  --mint-dim: #1f6553;
+  --grid-dot: #e2ded3;
+  --header-bg: rgba(245, 244, 239, 0.85);
+  --surface-card: rgba(255, 255, 255, 0.75);
+  --accent-border-hover: rgba(185, 121, 31, 0.35);
+  --accent-border-hover-50: rgba(185, 121, 31, 0.45);
+  --mint-border-hover: rgba(41, 128, 106, 0.35);
+  --orb-amber: rgba(217, 154, 61, 1);
+  --orb-mint: rgba(41, 128, 106, 1);
+  --orb-amber-opacity: 0.14;
+  --orb-mint-opacity: 0.1;
+  --aurora-amber: rgba(217, 154, 61, 0.3);
+  --aurora-mint: rgba(41, 128, 106, 0.22);
+  --aurora-opacity: 0.35;
+  --cursor-amber: rgba(185, 121, 31, 0.12);
+  --cursor-mint: rgba(41, 128, 106, 0.05);
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -20,43 +87,50 @@ html {
   }
 }
 
-body {
-  background-color: #0a0e14;
-  color: #e8ecef;
-}
-
 ::selection {
-  background-color: #f2b84b;
-  color: #0a0e14;
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 :focus-visible {
-  outline: 2px solid #f2b84b;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* subtle scanline-free grid texture for section backgrounds */
-.grain-bg {
-  background-image: radial-gradient(#232b37 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
 .section-label {
   font-family: var(--font-jetbrains-mono), monospace;
-  color: #f2b84b;
+  color: var(--accent);
   font-size: 0.8125rem;
   letter-spacing: 0.01em;
 }
 
 /* ---------- ambient background ---------- */
 @keyframes drift-a {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, 60px) scale(1.1); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 60px) scale(1.1);
+  }
 }
 @keyframes drift-b {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-60px, -30px) scale(1.05); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-60px, -30px) scale(1.05);
+  }
+}
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .bg-fx {
@@ -64,14 +138,31 @@ body {
   inset: 0;
   z-index: -10;
   overflow: hidden;
-  background: #0a0e14;
+  background: var(--bg);
+  transition: background-color 0.4s ease;
+}
+
+.bg-aurora {
+  position: absolute;
+  inset: -25%;
+  background: conic-gradient(
+    from 180deg at 50% 30%,
+    transparent 0deg,
+    var(--aurora-amber) 60deg,
+    transparent 150deg,
+    var(--aurora-mint) 230deg,
+    transparent 320deg
+  );
+  filter: blur(110px);
+  opacity: var(--aurora-opacity);
+  animation: spin-slow 50s linear infinite;
+  transition: opacity 0.4s ease;
 }
 
 .bg-orb {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.16;
 }
 
 .bg-orb-amber {
@@ -79,7 +170,8 @@ body {
   height: 620px;
   top: -180px;
   left: -120px;
-  background: #f2b84b;
+  background: var(--orb-amber);
+  opacity: var(--orb-amber-opacity);
   animation: drift-a 22s ease-in-out infinite;
 }
 
@@ -88,26 +180,57 @@ body {
   height: 520px;
   bottom: -160px;
   right: -100px;
-  background: #7ce0c4;
-  opacity: 0.11;
+  background: var(--orb-mint);
+  opacity: var(--orb-mint-opacity);
   animation: drift-b 26s ease-in-out infinite;
 }
 
 .bg-grid-mask {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(#232b37 1px, transparent 1px);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
   background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 40%,
+    transparent 100%
+  );
   opacity: 0.7;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .bg-orb-amber,
-  .bg-orb-mint {
+  .bg-orb-mint,
+  .bg-aurora {
     animation: none;
   }
+}
+
+.bg-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    var(--cursor-amber),
+    var(--cursor-mint) 45%,
+    transparent 72%
+  );
+  filter: blur(30px);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition:
+    transform 0.15s ease-out,
+    opacity 0.4s ease;
 }
 
 /* ---------- mouse-tracking spotlight (hover) ---------- */
@@ -122,7 +245,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     420px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(242, 184, 75, 0.14),
+    var(--cursor-amber),
     transparent 72%
   );
   opacity: 0;
@@ -147,7 +270,7 @@ body {
   bottom: -5px;
   width: 0;
   height: 1px;
-  background: #f2b84b;
+  background: var(--accent);
   transition: width 0.25s ease;
 }
 

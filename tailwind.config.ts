@@ -10,24 +10,25 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0A0E14",
-          surface: "#10151D",
-          raised: "#161C26",
-          border: "#232B37",
+          DEFAULT: "var(--bg)",
+          surface: "var(--bg-surface)",
+          raised: "var(--bg-raised)",
+          border: "var(--border)",
         },
         paper: {
-          DEFAULT: "#E8ECEF",
-          muted: "#8B96A5",
-          faint: "#5B6572",
+          DEFAULT: "var(--text)",
+          muted: "var(--text-muted)",
+          faint: "var(--text-faint)",
         },
         amber: {
-          DEFAULT: "#F2B84B",
-          dim: "#C99638",
+          DEFAULT: "var(--accent)",
+          dim: "var(--accent-dim)",
         },
         mint: {
-          DEFAULT: "#7CE0C4",
-          dim: "#4FA98F",
+          DEFAULT: "var(--mint)",
+          dim: "var(--mint-dim)",
         },
+        accentText: "#14110A",
       },
       fontFamily: {
         display: ["var(--font-space-grotesk)", "sans-serif"],
