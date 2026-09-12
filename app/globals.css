@@ -35,32 +35,32 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --bg: #f5f4ef;
-  --bg-surface: #ffffff;
-  --bg-raised: #ece9e1;
-  --border: #ddd9cf;
-  --text: #1b1f27;
-  --text-muted: #5b6572;
-  --text-faint: #838d9a;
-  --accent: #b9791f;
-  --accent-dim: #96601a;
-  --mint: #29806a;
-  --mint-dim: #1f6553;
-  --grid-dot: #e2ded3;
-  --header-bg: rgba(245, 244, 239, 0.85);
-  --surface-card: rgba(255, 255, 255, 0.75);
-  --accent-border-hover: rgba(185, 121, 31, 0.35);
-  --accent-border-hover-50: rgba(185, 121, 31, 0.45);
-  --mint-border-hover: rgba(41, 128, 106, 0.35);
-  --orb-amber: rgba(217, 154, 61, 1);
-  --orb-mint: rgba(41, 128, 106, 1);
-  --orb-amber-opacity: 0.14;
-  --orb-mint-opacity: 0.1;
-  --aurora-amber: rgba(217, 154, 61, 0.3);
-  --aurora-mint: rgba(41, 128, 106, 0.22);
-  --aurora-opacity: 0.35;
-  --cursor-amber: rgba(185, 121, 31, 0.12);
-  --cursor-mint: rgba(41, 128, 106, 0.05);
+  --bg: #f7f1e8;
+  --bg-surface: #fffdf9;
+  --bg-raised: #f0e6d8;
+  --border: #d9c9b5;
+  --text: #1f1b18;
+  --text-muted: #5b4e42;
+  --text-faint: #817264;
+  --accent: #b97a2b;
+  --accent-dim: #99641c;
+  --mint: #2e7662;
+  --mint-dim: #1e584b;
+  --grid-dot: #e4d8c7;
+  --header-bg: rgba(247, 241, 232, 0.72);
+  --surface-card: rgba(255, 255, 255, 0.7);
+  --accent-border-hover: rgba(185, 121, 43, 0.28);
+  --accent-border-hover-50: rgba(185, 121, 43, 0.4);
+  --mint-border-hover: rgba(46, 118, 98, 0.28);
+  --orb-amber: rgba(223, 166, 81, 1);
+  --orb-mint: rgba(111, 182, 157, 1);
+  --orb-amber-opacity: 0.18;
+  --orb-mint-opacity: 0.12;
+  --aurora-amber: rgba(223, 166, 81, 0.4);
+  --aurora-mint: rgba(111, 182, 157, 0.26);
+  --aurora-opacity: 0.55;
+  --cursor-amber: rgba(185, 121, 43, 0.15);
+  --cursor-mint: rgba(46, 118, 98, 0.07);
 }
 
 html {
@@ -68,6 +68,7 @@ html {
 }
 
 body {
+  background: var(--bg);
   transition:
     background-color 0.4s ease,
     color 0.4s ease;
@@ -138,7 +139,18 @@ body {
   inset: 0;
   z-index: -10;
   overflow: hidden;
-  background: var(--bg);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(223, 166, 81, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(111, 182, 157, 0.18),
+      transparent 30%
+    ),
+    var(--bg);
   transition: background-color 0.4s ease;
 }
 
