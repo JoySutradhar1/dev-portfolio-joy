@@ -42,7 +42,7 @@ export const projects = [
       "Cut initial load time by optimizing bundle size and code-splitting.",
       "Improved search responsiveness by introducing debouncing, reducing redundant API calls.",
       "Built real-time chat between customers and admins with Socket.io.",
-      "Designed and shipped a \"Complain Box\" feature to streamline issue reporting.",
+      'Designed and shipped a "Complain Box" feature to streamline issue reporting.',
       "Fixed critical cross-platform UI bugs and rendering performance issues.",
     ],
     href: undefined as string | undefined,
@@ -59,16 +59,17 @@ export const projects = [
     ],
     href: undefined as string | undefined,
   },
+
   {
-    name: "BD Kids Book",
-    subtitle: "Interactive learning app for children",
+    name: "Adorsholipi",
+    subtitle: "Bengali learning app with interactive games",
     stack: ["React Native"],
     points: [
-      "First React Native project — tap-to-sound interactive learning for kids.",
-      "Designed a child-friendly interface with vibrant visuals and intuitive navigation.",
-      "Added audio feedback for letters and images to reinforce learning.",
+      "Developed an interactive educational app for children to learn Bengali letters, words, numbers, months, seasons, fruits, vegetables, birds, and basic mathematics.",
+      "Implemented interactive games, quizzes, level-based learning, and progress-focused activities to make learning engaging.",
+      "Integrated audio pronunciation and visual learning content with a colorful, child-friendly interface and intuitive navigation.",
     ],
-    href: "https://github.com/JoySutradhar1/BDKidsBook",
+    href: "https://play.google.com/store/apps/details?id=go.goappsbd.hatekhori&hl=en",
   },
 ];
 
